@@ -1,12 +1,26 @@
 #pragma once
 #include "Matrix.hpp"
 
+#pragma region 判断矩阵维数是否相同
 //判断两个矩阵是否维数相同
 template <typename T>
 bool ifSameSize(const Matrix<T> &A, const Matrix<T> &B)
 {
     return A.ifSameSize(B);
 }
+//判断两个矩阵是否行数相同
+template <typename T>
+bool ifSameM(const Matrix<T> &A, const Matrix<T> &B)
+{
+    return A.getM() == B.getM();
+}
+//判断两个矩阵是否列数相同
+template <typename T>
+bool ifSameN(const Matrix<T> &A, const Matrix<T> &B)
+{
+    return A.getN() == B.getN();
+}
+#pragma endregion
 
 //返回矩阵转置 test ok!
 template <typename T>
