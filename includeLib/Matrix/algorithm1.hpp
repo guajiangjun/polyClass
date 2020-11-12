@@ -1,7 +1,9 @@
 #pragma once
 #include "Matrix.hpp"
 
-#pragma region 判断矩阵维数是否相同
+#pragma region 矩阵相关函数与算法1
+
+#pragma region 判断矩阵维数是否相同 should be ok !
 //判断两个矩阵是否维数相同
 template <typename T>
 bool ifSameSize(const Matrix<T> &A, const Matrix<T> &B)
@@ -76,7 +78,7 @@ Matrix<T> deleteRow(const Matrix<T> A, int ith)
 {
     if (ith <= 0 || ith >= A.getM() + 1)
     {
-        throw invalid_argument("deleteRow():size wrong!");
+        throw invalid_argument("deleteRow():index wrong!");
     }
     Matrix<T> re(A.getM() - 1, A.getN());
     for (int j = 1; j <= A.getN(); j++)
@@ -95,7 +97,7 @@ Matrix<T> deleteCol(const Matrix<T> A, int jth)
 {
     if (jth <= 0 || jth >= A.getN() + 1)
     {
-        throw invalid_argument("deleteCol():size wrong!");
+        throw invalid_argument("deleteCol():index wrong!");
     }
     Matrix<T> re = A;
     re = transpose(re);
@@ -103,6 +105,8 @@ Matrix<T> deleteCol(const Matrix<T> A, int jth)
     re = transpose(re);
     return re;
 }
+#pragma endregion
+
 #pragma endregion
 
 // //矩阵拼接

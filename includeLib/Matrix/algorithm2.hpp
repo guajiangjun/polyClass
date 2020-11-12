@@ -1,5 +1,7 @@
 #pragma once
-#include "algorithm.hpp"
+#include "algorithm1.hpp"
+
+#pragma region 矩阵相关函数与算法2
 
 #pragma region 初等行变换
 //某一行乘以一个数
@@ -46,7 +48,7 @@ Matrix<T> addRow2Row(const Matrix<T> &A, int i, T a, int j)
 #pragma endregion
 
 #pragma region 计算trace, determinant
-//计算trace
+//计算trace should bo ok!
 template <typename T>
 T trace(const Matrix<T> &A)
 {
@@ -62,22 +64,22 @@ T trace(const Matrix<T> &A)
     return re;
 }
 
-//计算determinant
+//计算determinant tesk ok!!!
 template <typename T>
 T det(const Matrix<T> &A)
 {
     int m = A.getM(), n = A.getN();
     if (m != n)
     {
-        throw invalid_argument("compute trace shuold be square matrix!");
+        throw invalid_argument("compute det shuold be square matrix!");
     }
     if (m == 1)
     {
-        return A[0][0];
+        return A[1][1];
     }
     else if (m == 2)
     {
-        return A[0, 0] * A[1, 1] - A[0][1] * A[1][0];
+        return A[1][1] * A[2][2] - A[1][2] * A[2][1];
     }
     else
     {
@@ -99,4 +101,6 @@ T det(const Matrix<T> &A)
         return re;
     }
 }
+#pragma endregion
+
 #pragma endregion
